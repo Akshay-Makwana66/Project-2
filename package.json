@@ -1,0 +1,27 @@
+{
+  "name": "project-internshipgroup5",
+  "version": "1.0.0",
+  "description": "Open to Intern",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajit-kerle/project-internshipGroup5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajit-kerle/project-internshipGroup5/issues"
+  },
+  "homepage": "https://github.com/ajit-kerle/project-internshipGroup5#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
