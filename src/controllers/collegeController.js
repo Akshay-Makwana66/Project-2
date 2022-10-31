@@ -6,18 +6,19 @@ const createCollege=async function(req,res){
    try{
        let data=req.body
        let savedData=await collegeModel.create(data)
-       res.status(201).send({status:true,data:savedData})
-   }catch(err){
-    res.status(500).send({status:false,msg:err.message})
+       res.status(201).send({status:true,data:savedData})                 
+   }catch(err){   
+    res.status(500).send({status:false,msg:err})
    }
-}
-
+}                                                
+    
 const getCollegeDetails = async function (req, res) {
-    try {
+    // res.setHeader('Access-Control-Allow-Origin','*')
+    try {  
         const userQuery = req.query
          if (Object.keys(userQuery).length == 0)return res.status(400).send({ status: false, message: "Query Params Cannot Be Empty, Write CollegeName" })
          
-        const collegeName = req.query.collegeName
+        const collegeName = req.query.collegeName       
         const getCollegeName = await collegeModel.findOne({ name: collegeName, isDeleted: false })
 
         if (!getCollegeName) return res.status(404).send({ status: false, message: "No colleges found with this name" })
@@ -35,7 +36,7 @@ const getCollegeDetails = async function (req, res) {
             interns: Interns
         }
         res.status(200).send({ status: true, data: allInterns })
-    }catch (err) {
+    }catch (err) {     
       console.log("This is the error :", err.message);
       return res.status(500).send({ status: false, message: "Error", error: err.message });
     }

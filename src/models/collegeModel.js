@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
 
-// college model
-//{ name: { mandatory, unique, example iith}, fullName: {mandatory, example `Indian Institute of Technology, Hyderabad`}, logoLink: {mandatory}, isDeleted: {boolean, default: false} }
 const collegeSchema = new mongoose.Schema(
   {
-    name: {
+    name: {       
       type: String,
       unique: true,
       required: true,
@@ -15,13 +13,13 @@ const collegeSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true
-    },
+    },                  
     logoLink: {
       type: String,        
       required: true,
       trim: true
     },
-    isDeleted: {
+    isDeleted: {     
       type: Boolean,
       default: false,
     },

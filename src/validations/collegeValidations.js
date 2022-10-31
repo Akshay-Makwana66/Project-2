@@ -3,7 +3,7 @@ const collegeModel = require("../models/collegeModel");
 const collegeValidations = async function (req, res,next) {
   try {
     let college = req.body; 
-    // Checks whether body is empty or not
+    // Checks whether body is empty or not           
 
     if (Object.keys(college).length == 0)return res.status(400).send({ status: false, msg: "Body cannot be empty" });
 
@@ -21,7 +21,7 @@ const collegeValidations = async function (req, res,next) {
                                                
     college.name = college.name.trim();         
 
-    if (!validname.test(college.name))return res.status(400).send({ status: false, msg: "The college name may contain only small letters & not space between words or letter"});
+    if (!validname.test(college.name))return res.status(400).send({ status: false, msg: "The college name may contain only small letters & not space between words or letter & numbers as well"});
 
     // Checks whether college fullName is empty or is enter as a string or contains only letters
 
@@ -34,7 +34,7 @@ const collegeValidations = async function (req, res,next) {
        college.fullName = college.fullName.trim();     
 
        if (!validfullName.test(college.fullName))return res.status(400).send({ status: false, msg: "The college fullName may contain only letters" });
-
+        
     // check link             
 
     if (!college.logoLink)return res.status(400).send({ status: false, msg: "Please enter college logoLink" });
